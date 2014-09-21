@@ -1,6 +1,8 @@
 class FizzbuzzGame
   def initialize
     @test_case_variables = []
+    @fizzbuzz_output = []
+    @array = []
   end
 
   def play
@@ -31,20 +33,23 @@ class FizzbuzzGame
       if (1..20).include?(variable[0] && variable[1]) && (21..100).include?(variable[2])
         (1..variable[2]).each do |n|
           if n % variable[1] == 0 && n % variable[0] == 0
-            print "FB "
+            @array << "FB"
           elsif n % variable[0] == 0
-            print "F "
+            @array << "F"
           elsif n % variable[1] == 0
-            print "B "
+            @array << "B"
           else
-            print n.to_s + " "
+            @array << n.to_s
           end
         end
-        print "\n"
+
+        @fizzbuzz_output << @array
       else
         puts "Sorry, the first two numbers must be between 1 and 20 and the last number should be between 21 and 100"
       end
     end
+
+        puts @fizzbuzz_output.inspect
   end
 end
 
